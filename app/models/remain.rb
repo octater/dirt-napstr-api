@@ -1,0 +1,2 @@
+class Remain < ApplicationRecord
+end
