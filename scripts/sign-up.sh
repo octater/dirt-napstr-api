@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# EMAIL="test@gmail.com" PASSWORD="test" NPW="test" sh scripts/sign-up.sh
+# EMAIL="tater@gmail.com" PASSWORD="test" NPW="test" sh scripts/sign-up.sh
+# EMAIL="tatertot@gmail.com" PASSWORD="test" sh scripts/sign-up.sh
+
 API="${API_ORIGIN:-http://localhost:4741}"
 URL_PATH="/sign-up"
 curl "${API}${URL_PATH}" \
@@ -10,7 +14,7 @@ curl "${API}${URL_PATH}" \
     "credentials": {
       "email": "'"${EMAIL}"'",
       "password": "'"${PASSWORD}"'",
-      "password_confirmation": "'"${PASSWORD}"'"
+      "password_confirmation": "'"${NPW}"'"
     }
   }'
 
