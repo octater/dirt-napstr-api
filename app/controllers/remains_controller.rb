@@ -1,9 +1,16 @@
-class RemainsController < ApplicationController
+# frozen_string_literal: true
+
+class RemainsController < OpenReadController
   before_action :set_remain, only: [:show, :update, :destroy]
 
   # GET /remains
   def index
-    @remains = Remain.all
+    # @remains = Remain.all
+    if current_user
+      @remains = current_user.remains
+    else
+      @remains = Remain.all
+    end
 
     render json: @remains
   end
@@ -14,11 +21,21 @@ class RemainsController < ApplicationController
   end
 
   # POST /remains
+  # def create
+  #   @remain = Remain.new(remain_params)
+  #
+  #   if @remain.save
+  #     render json: @remain, status: :created, location: @remain
+  #   else
+  #     render json: @remain.errors, status: :unprocessable_entity
+  #   end
+  # end
+
   def create
-    @remain = Remain.new(remain_params)
+    @remain = current_user.remains.build(remain_params)
 
     if @remain.save
-      render json: @remain, status: :created, location: @remain
+      render json: @remain, status: :created
     else
       render json: @remain.errors, status: :unprocessable_entity
     end
@@ -36,16 +53,20 @@ class RemainsController < ApplicationController
   # DELETE /remains/1
   def destroy
     @remain.destroy
+    head :no_content
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_remain
-      @remain = Remain.find(params[:id])
-    end
+  # private
 
-    # Only allow a trusted parameter "white list" through.
-    def remain_params
-      params.require(:remain).permit(:given_name, :sur_name, :entombment, :location, :comments, :dob, :dod, :relation_desc)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_remain
+    @remain = current_user.remains.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def remain_params
+    params.require(:remain).permit(:given_name, :sur_name, :entombment, :location, :comments, :dob, :dod, :relation_desc, :user_id)
+  end
+
+  private :set_remain, :remain_params
 end
