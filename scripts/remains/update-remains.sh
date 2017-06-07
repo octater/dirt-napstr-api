@@ -9,7 +9,6 @@ SN="Smith"
 E="cremated"
 L="Potters Golf Course"
 C="around the 18th green"
-DOB="1972-06-27"
 DOD="2016-11-19"
 RD="good friend of mine"
 
@@ -27,7 +26,6 @@ API="${API_ORIGIN:-http://localhost:4741}"
           "entombment": "'"${E}"'",
           "location": "'"${L}"'",
           "comments": "'"${C}"'",
-          "dob": "'"${DOB}"'",
           "dod": "'"${DOD}"'",
           "relation_desc": "'"${RD}"'"
         }

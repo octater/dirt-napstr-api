@@ -65,7 +65,7 @@ class RemainsController < OpenReadController
 
   # Only allow a trusted parameter "white list" through.
   def remain_params
-    params.require(:remain).permit(:given_name, :sur_name, :entombment, :location, :comments, :dob, :dod, :relation_desc, :user_id)
+    params.require(:remain).permit(:given_name, :sur_name, :entombment, :location, :comments, :dod, :relation_desc, :user_id)
   end
 
   private :set_remain, :remain_params

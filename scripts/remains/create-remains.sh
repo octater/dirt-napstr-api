@@ -8,7 +8,6 @@ SN="Flintstone"
 E="cremated"
 L="Bedrock"
 C="next to old dog house"
-DOB="1942-04-17"
 DOD="2010-10-29"
 RD="good friend"
 
@@ -22,7 +21,6 @@ curl --include --request POST http://localhost:4741/remains \
       "entombment": "'"${E}"'",
       "location": "'"${L}"'",
       "comments": "'"${C}"'",
-      "dob": "'"${DOB}"'",
       "dod": "'"${DOD}"'",
       "relation_desc": "'"${RD}"'"
     }
