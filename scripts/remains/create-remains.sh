@@ -2,15 +2,15 @@
 
 # run as sh scripts/remains/create-remains.sh
 
-TOKEN="BAhJIiUzYWQ4ODdjYWJmMGRmY2IyNTJkYzg3NmEzNWRkODY4ZAY6BkVG--98303a7c637a291df9343dc332c7ada72540c661"
-GN="Barney"
-SN="Rubble"
-E="cemetary"
-L="Greenwood"
-C="next to big bush in section 14"
+TOKEN="BAhJIiVkNzQ2MDliMWNjNGQ2N2JiM2RhZDMzMzZhYWE1MmE4MQY6BkVG--8be12def100bb5c124bdbf45c4d522bace01d540"
+GN="Dino"
+SN="Flintstone"
+E="cremated"
+L="Bedrock"
+C="next to old dog house"
 DOB="1942-04-17"
 DOD="2010-10-29"
-RD="my dogs buddy"
+RD="good friend"
 
 curl --include --request POST http://localhost:4741/remains \
   --header "Authorization: Token token=$TOKEN" \
