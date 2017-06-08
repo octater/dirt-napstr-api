@@ -5,30 +5,51 @@
 
 ## Description
 
-More to come
+My capstone project was to build a gravesite tracker appliction.  A user must
+be signed in before they can create/view/modify/delete their entries.
 
 ## Project Links
 
 #### Back-End Deplpyed
-[ProjectApiDeployed]()
+[ProjectApiDeployed](https://octater-dirt-napstr-api.herokuapp.com/)
 #### Back-End Repo
-[ProjectApiRepo]()
+[ProjectApiRepo](https://github.com/octater/dirt-napstr-api)
 
 #### Front-End Deployed
-[ProjectClientDeployed]()
+[CapstoneClientDeployed](https://octater.github.io/dirt-napstr-client/)
 #### Front-End Repo
-[ProjectClientRepo]()
+[CapsonteClientRepo](https://github.com/octater/dirt-napstr-client)
 
 ## ERD
 
 ![ERD](images/ERD.png)
 
+## General Approach
 
-## Description
+As with all the previous projects, I first created the wireframe, user stories,
+and ERD. I decided early to use Postgres database and not MongoDB (nothing
+against MongoDB, but I felt this was better suited for a sql database).  From
+the ERD, I proceeded to get the basic backend tables generated.
 
-More to come
+Working with it wireframe and user stories, I then started to get a working
+CRUD frontend app ready.  I started with the user functions then proceeded to
+the remains entries.
 
-## Links
+Lastly, I tried to beautify the app.  This turned out to be more work than
+anticipated.  I wanted to use handlebars, a date picker, and a dropdown this
+time.
+
+## Technologies
+
+-   HTML
+-   CSS
+-   JavaScript
+-   Bootstrap
+-   Ajax
+-   Handlebars
+-   Heruko
+-   Ruby/Rails
+-   Postgres
 
 ## API
 
@@ -102,6 +123,93 @@ curl http://localhost:4741/sign-out/$ID \
   --request DELETE \
   --header "Authorization: Token token=$TOKEN"
 ```
+
+### Remains
+
+| Verb   |  URI Pattern    |  Controller#Action  |
+|--------|-----------------|---------------------|
+| GET    | `/remains`      | `remains#index`     |
+| POST   | `/remains`      | `remains#create`    |
+| PATCH  | `/remains/:id`  | `remains#update`    |
+| DELETE | `/remains/:id`  | `remains#destroy`   |
+
+#### GET /remains
+
+Request:
+
+```sh
+curl --include --request GET http://localhost:4741/remains \
+  --header "Authorization: Token token=$TOKEN"
+```
+
+#### POST /remains
+
+Request:
+
+```sh
+curl --include --request POST http://localhost:4741/remains \
+  --header "Authorization: Token token=$TOKEN" \
+  --header "Content-Type: application/json" \
+  --data '{
+    "remain": {
+      "given_name": "'"${GN}"'",
+      "sur_name": "'"${SN}"'",
+      "entombment": "'"${E}"'",
+      "location": "'"${L}"'",
+      "comments": "'"${C}"'",
+      "dod": "'"${DOD}"'",
+      "relation_desc": "'"${RD}"'"
+    }
+  }'
+```
+
+#### PATCH /remains/:id
+
+Request:
+
+```sh
+API="${API_ORIGIN:-http://localhost:4741}"
+    URL_PATH="/remains/$ID"
+    curl "${API}${URL_PATH}" \
+      --include \
+      --request PATCH \
+      --header "Authorization: Token token=$TOKEN" \
+      --header "Content-Type: application/json" \
+      --data '{
+        "remain": {
+          "given_name": "'"${GN}"'",
+          "sur_name": "'"${SN}"'",
+          "entombment": "'"${E}"'",
+          "location": "'"${L}"'",
+          "comments": "'"${C}"'",
+          "dod": "'"${DOD}"'",
+          "relation_desc": "'"${RD}"'"
+        }
+      }'
+```
+
+#### DELETE /remains/:id
+
+Request:
+
+```sh
+API="${API_ORIGIN:-http://localhost:4741}"
+    URL_PATH="/remains/$ID"
+    curl "${API}${URL_PATH}" \
+      --include \
+      --request DELETE \
+  --header "Authorization: Token token=$TOKEN"
+```
+
+## Unsolved Problems or Major Hurdles
+
+No unsolved or known problems.  One hurdle was ensuring only values in a
+dropdown field is valid when adding or updating a record
+
+
+## Install Instructions
+
+No special install instructions.
 
 
 ## [License](LICENSE)
