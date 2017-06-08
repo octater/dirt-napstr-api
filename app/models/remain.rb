@@ -3,6 +3,8 @@
 class Remain < ApplicationRecord
   belongs_to :user
 
+  validates_inclusion_of :entombment, in: %w( cremated cemetary other ), message: "entombment %{value} is not included in the list"
+
   validates :user_id, :user, presence: true
   validates :given_name, presence: true
   validates :sur_name, presence: true
