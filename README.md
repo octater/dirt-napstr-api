@@ -10,7 +10,7 @@ be signed in before they can create/view/modify/delete their entries.
 
 ## Project Links
 
-#### Back-End Deplpyed
+#### Back-End Deployed
 [ProjectApiDeployed](https://octater-dirt-napstr-api.herokuapp.com/)
 #### Back-End Repo
 [ProjectApiRepo](https://github.com/octater/dirt-napstr-api)
@@ -18,7 +18,7 @@ be signed in before they can create/view/modify/delete their entries.
 #### Front-End Deployed
 [CapstoneClientDeployed](https://octater.github.io/dirt-napstr-client/)
 #### Front-End Repo
-[CapsonteClientRepo](https://github.com/octater/dirt-napstr-client)
+[CapstoneClientRepo](https://github.com/octater/dirt-napstr-client)
 
 ## ERD
 
@@ -31,7 +31,7 @@ and ERD. I decided early to use Postgres database and not MongoDB (nothing
 against MongoDB, but I felt this was better suited for a sql database).  From
 the ERD, I proceeded to get the basic backend tables generated.
 
-Working with it wireframe and user stories, I then started to get a working
+Working with the wireframe and user stories, I then started to get a working
 CRUD frontend app ready.  I started with the user functions then proceeded to
 the remains entries.
 
